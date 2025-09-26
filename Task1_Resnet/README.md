@@ -29,9 +29,9 @@
 	- train:50,000, batch_size=10000, batch=5
 	- test:10,000, 每一类随机抽取1,000张
 	- dimension (3, 32, 32)
-    
+  
 - 评价指标：**loss, accuracy** 
-    
+  
 - 目标：基于 ResNet-18（CIFAR-stem）在标准增强下得到稳定的结果。
 ### 2. 网络结构
 #### 2.1 BasicBlock
@@ -73,8 +73,13 @@ scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=30, gamma=0.1)
 ```
 - **Loss function**
 `criterion = nn.CrossEntropyLoss()`
+
 #### 3.2 结果指标
+
 使用自实现的 ResNet-18 在 CIFAR-10 上设置训练 200 轮，采用 StepLR，最终取得 **93.72%** 的验证准确率与 **0.238** 的验证损失。训练准确率达 **99.95%**，与验证准确率存在约 **6.2%** 的泛化差距，表现为轻中度过拟合。学习率在第30轮的下降显著改善了验证集表现，后续阶段趋于稳定。
+
+<img src="attachments/0915_resnet_cifar10_tensorboard.png" style="zoom:50%;" />
+
 - Loss 曲线
 	- `train/loss`,`val/loss`
 - Accuracy 曲线
@@ -84,8 +89,11 @@ scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=30, gamma=0.1)
 ---
 ## ResNet 系列实现
 提供一个可复用、可扩展的 ResNet 实现。
-![[resnet架构.png]]
+
+![](attachments/resnet架构.png)
+
 ### 设计
+
 - 两类残差块
 	- `BasicBlock(expansion=1)`:两层 3×3， 供 18/34使用
 	- `Bottleneck(expansion=4)`:1×1 -> 3×3 -> 1×1
