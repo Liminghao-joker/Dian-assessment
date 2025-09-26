@@ -78,7 +78,7 @@ scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=30, gamma=0.1)
 
 使用自实现的 ResNet-18 在 CIFAR-10 上设置训练 200 轮，采用 StepLR，最终取得 **93.72%** 的验证准确率与 **0.238** 的验证损失。训练准确率达 **99.95%**，与验证准确率存在约 **6.2%** 的泛化差距，表现为轻中度过拟合。学习率在第30轮的下降显著改善了验证集表现，后续阶段趋于稳定。
 
-<img src="attachments/0915_resnet_cifar10_tensorboard.png" style="zoom:50%;" />
+<img src="attachments/resnet_cifar10_tensorboard.png" style="zoom:50%;" />
 
 - Loss 曲线
 	- `train/loss`,`val/loss`
