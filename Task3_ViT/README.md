@@ -81,6 +81,7 @@ dpr = torch.linspace(0, drop_path_rate, depth).tolist()
 trunc_normal_(std = 0.02) + LN(1,0) # (weight, bias)
 ```
 ## 配置表
+
 ```python
 # Parameter
 config = {  
@@ -98,16 +99,21 @@ config = {
 }
 ```
 ## 自检
-运行`my_vit.py`文件的`quick_test()`函数，结果如下图。
+
+运行`my_vit.py`文件的`quick_test()`函数，结果如下。
+
 `device=cuda, logits_shape=(2, 10), loss=2.4120, pred=[3, 3]`
+
 - 检测维度变换
 - 基本训练流程
 	- 前向、反向传播
 	- 损失计算
 	- 参数优化更新
+
 ## Reference
->- ViT原始论文 https://arxiv.org/pdf/2010.11929/1000
->-  CSDN Vision Transformer详解
-> https://blog.csdn.net/qq_37541097/article/details/118242600
-> - 视频
-> [使用pytorch搭建Vision Transformer(vit)模型_bilibili](https://www.bilibili.com/video/BV1AL411W7dT/?spm_id_from=333.337.search-card.all.click&vd_source=47dbec3f3db6a86044a31f482a95d4f0)
+
+-  [ViT原始论文](https://arxiv.org/pdf/2010.11929/1000)
+   
+- [CSDN Vision Transformer详解](https://blog.csdn.net/qq_37541097/article/details/118242600)
+  
+- [用Pytorch搭建Vision Transformer模型](https://www.bilibili.com/video/BV1AL411W7dT/?spm_id_from=333.337.search-card.all.click&vd_source=47dbec3f3db6a86044a31f482a95d4f0)

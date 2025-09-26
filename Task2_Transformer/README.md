@@ -1,6 +1,10 @@
 # Task 2 Transformer Encoder
-实现 Self-Attention, Multi-Head Attention, Add&Norm, Feed Forward，并堆叠为 Encoder，并用随机矩阵输入进行测试。
+- 实现 *Self-Attention, Multi-Head Attention, Add&Norm, Feed Forward*，并堆叠为 *Encoder*。
+
+- 输入随机矩阵进行测试。
+
 ## 项目结构
+
 - `Self_Attention.py`
 	- Scaled Dot-Product Attention 
 	- Self-Attention Block  
@@ -12,8 +16,6 @@
 - `Encoder.py`
 	- `EncoderLayer` 与堆叠的 `Encoder`
 	- 测试参数配置二，检查输入、输出维度
-- `test.py`
-	- 测试参数配置一，打印第一层各过程张量
 
 ## 测试
 测试使用参数
@@ -44,16 +46,26 @@ config_test_2 = {
 在 *Pycharm* 的*Python* 控制台检测各张量的维度变化，结果符合原预期。
 
 ### 结果
+
 **输入随机矩阵**
+
+<img src="attachments/config1_input.png" style="zoom:50%;" />
+
 **Padding mask**
 
+<img src="attachments/config1_mask.png" style="zoom:50%;" />
+
 **注意力权重矩阵**
+
+<img src="attachments/config1_attn_scores.png" style="zoom:50%;" />
+
 **输出结果**
-### 常见问题及解决
-1. 维度不匹配
-	解决分头后的维度匹配问题，需注意`assert d_model % num_heads == 0`
-2. Padding Mask 的形状 广播机制
-3. Add&Norm 中归一化norm
-### 学习
-1. 为什么要采用”多头注意力机制“？
-2. Pre-LN
+
+<img src="attachments/config1_final_output.png" style="zoom:50%;" />
+
+## Reference
+
+- [注意力机制 · GitBook](https://www.rethink.fun/chapter13/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6.html)
+- [注意力机制 · GitBook](https://www.rethink.fun/chapter15/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6.html)
+- [2021 - 自注意力机制 (Self-attention) (下) | 李宏毅机器学习](https://www.bilibili.com/video/BV1Wv411h7kN?spm_id_from=333.788.videopod.episodes&vd_source=47dbec3f3db6a86044a31f482a95d4f0&p=39)
+- [GPT是什么？直观解释Transformer](https://www.bilibili.com/video/BV13z421U7cs/?spm_id_from=333.337.search-card.all.click)

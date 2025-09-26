@@ -1,4 +1,5 @@
 # Task 1 ResNet18实现
+
 ## 简述
 **任务**
 - 实现一个基本的Resnet-18网络
@@ -6,6 +7,7 @@
 - （选做）实现易复用，延展性好的Resnet网络模型的代码
 
 **项目结构**
+
 - `Basic_Resnet18.py`
 	ResNet18 for CIFAR-10
 - `Block.py`
@@ -131,11 +133,12 @@ logits50 = m50(x)  # [2, 1000]
 ```
 ### 形状与参数量自检
 运行`ResNet.py`末尾的`test_resnet()`函数，可以得到以下结果。
-![[resnet_test.png]]
 - 构建 18 与 50 两个模型
 - 前向检查输出形状
 - 统计参数量
 - 前向-反向-优化步骤，确保梯度可计算
+
+![](attachments/resnet_test.png)
 
 由于测试时使用的是10类分类，而非原论文的ImageNet 1000类的标准统计，因此总参数量是基本正确的。
 ### 最小代码示例
@@ -184,7 +187,7 @@ class Bottleneck(nn.Module):
         self.downsample = downsample
 ```
 ## Reference
-[ResNet原理 · GitBook](https://www.rethink.fun/chapter11/ResNet%E5%8E%9F%E7%90%86.html)
-[CIFAR10 — Torchvision main documentation](https://docs.pytorch.org/vision/master/generated/torchvision.datasets.CIFAR10.html)
-[CIFAR-10图像分类（基于PyTorch）](https://blog.csdn.net/ft_sunshine/article/details/90644818?ops_request_misc=%257B%2522request%255Fid%2522%253A%252259e3b90cc9b1fde21acdf153126b61ac%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=59e3b90cc9b1fde21acdf153126b61ac&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-90644818-null-null.142^v102^pc_search_result_base6&utm_term=cifar-10%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB&spm=1018.2226.3001.4187)
-[权重衰减 · GitBook](https://www.rethink.fun/chapter9/%E6%9D%83%E9%87%8D%E8%A1%B0%E5%87%8F.html)
+- [ResNet原理 · GitBook](https://www.rethink.fun/chapter11/ResNet%E5%8E%9F%E7%90%86.html)
+- [CIFAR10 — Torchvision main documentation](https://docs.pytorch.org/vision/master/generated/torchvision.datasets.CIFAR10.html)
+- [CIFAR-10图像分类（基于PyTorch）](https://blog.csdn.net/ft_sunshine/article/details/90644818?ops_request_misc=%257B%2522request%255Fid%2522%253A%252259e3b90cc9b1fde21acdf153126b61ac%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=59e3b90cc9b1fde21acdf153126b61ac&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-90644818-null-null.142^v102^pc_search_result_base6&utm_term=cifar-10%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB&spm=1018.2226.3001.4187)
+- [权重衰减 · GitBook](https://www.rethink.fun/chapter9/%E6%9D%83%E9%87%8D%E8%A1%B0%E5%87%8F.html)
