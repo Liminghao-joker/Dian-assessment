@@ -131,13 +131,18 @@ $H(x) = F(x) + x$
     让梯度通过捷径直接传递到给网络的浅层，避免了梯度层层传递，带来的导数连乘让监督信号变弱。
 
 2. 不同卷积层的堆叠方式构造出Resnet-18，Resnet-34，Resnet-50模型
-  - ResNet-18，ResNet-34比较类似，只是不同阶段里边的Residual Block个数不同，但是每个阶段的Residual Block都是一样的。
-  - ResNet-50，ResNet-101，ResNet-152比较类似，也是每个阶段的Residual Block一样，只是个数不同。
+
+      - ResNet-18，ResNet-34比较类似，只是不同阶段里边的Residual Block个数不同，但是每个阶段的Residual Block都是一样的。
+
+      - ResNet-50，ResNet-101，ResNet-152比较类似，也是每个阶段的Residual Block一样，只是个数不同。
 
 3. BatchNorm 在ResNet中的作用
-  - 在深度网络中，前一层的参数更新会改变后续层的输入分布，BatchNorm通过**标准化**使每一层的输入分布保持稳定
-  - 确保梯度在残差块间稳定传递
-  - 在训练过程中引入噪声
+
+	  - 在深度网络中，前一层的参数更新会改变后续层的输入分布，BatchNorm通过**标准化**使每一层的输入分布保持稳定
+
+	  - 确保梯度在残差块间稳定传递
+
+	  - 在训练过程中引入噪声
 
 4. 如何解决Conv3-Conv5捷径连接的维度不匹配问题？
 
