@@ -115,5 +115,3 @@ $H(x) = F(x) + x$
 	- BasicBlock for ResNet-18/34
 	- Bottleneck for ResNet-50/101/152
 	- 为何不继续沿用BasicBlock？减少网络的计算量，让训练更深层的卷积神经网络变得可以承受。
-
-6. 
